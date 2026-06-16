@@ -10,8 +10,9 @@ async function connectToDB() {
         console.log("Connected to Database")
     }
     catch (err) {
-        console.log(err)
-    }
+    console.log(err.response?.data || err);
+    throw err;
+}
 }
 
 module.exports = connectToDB
